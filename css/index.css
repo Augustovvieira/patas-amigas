@@ -1,0 +1,452 @@
+:root {
+    --azul-escuro: #062449;
+    --azul-fundo: #082D57;
+    --azul-bebe: #9EDCFF;
+    --azul-destaque: #65C5F5;
+    --azul-borda: #17649A;
+    --branco: #FFFFFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--azul-escuro);
+    color: var(--azul-bebe);
+    line-height: 1.7;
+}
+
+/* ==========================
+   CONTAINER E GRID DE 12 COLUNAS
+========================== */
+
+.container {
+    width: min(100% - 48px, 1200px);
+    margin-inline: auto;
+}
+
+.header-grid,
+.secao-grid,
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 24px;
+}
+
+/* ==========================
+   CABEÇALHO
+========================== */
+
+header {
+    background-color: var(--azul-escuro);
+    border-bottom: 1px solid var(--azul-borda);
+    padding-block: 24px;
+}
+
+.marca {
+    grid-column: span 6;
+}
+
+.marca h1 {
+    color: var(--azul-destaque);
+    font-size: 2rem;
+    line-height: 1.2;
+}
+
+/* Menu */
+
+nav {
+    grid-column: span 6;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+nav a {
+    color: var(--azul-bebe);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: var(--branco);
+}
+
+/* Botão hambúrguer */
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: 2px solid var(--azul-destaque);
+    color: var(--azul-destaque);
+    font-size: 1.8rem;
+    padding: 4px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* ==========================
+   SEÇÕES PRINCIPAIS
+========================== */
+
+.secao-grid {
+    align-items: center;
+    padding-block: 40px;
+    border-bottom: 1px solid var(--azul-borda);
+}
+
+.texto {
+    grid-column: span 7;
+}
+
+.texto h2 {
+    color: var(--azul-bebe);
+    font-size: 2rem;
+    margin-bottom: 16px;
+}
+
+.texto p {
+    font-size: 1.05rem;
+    margin-bottom: 16px;
+}
+
+/* Seção inicial */
+
+#inicio .texto {
+    grid-column: span 6;
+}
+
+.imagem {
+    grid-column: span 6;
+}
+
+.imagem img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+/* Botão de adoção */
+
+.botao {
+    display: inline-block;
+    background-color: var(--azul-destaque);
+    color: var(--azul-escuro);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 12px 28px;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+}
+
+.botao:hover {
+    background-color: var(--branco);
+}
+
+/* ==========================
+   RODAPÉ
+========================== */
+
+footer {
+    background-color: #041D3B;
+    padding-block: 35px;
+    border-top: 1px solid var(--azul-borda);
+}
+
+.footer-grid {
+    align-items: start;
+}
+
+.contato {
+    grid-column: span 8;
+}
+
+.mensagem-final {
+    grid-column: span 4;
+}
+
+footer h2 {
+    color: var(--azul-destaque);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+footer p {
+    margin-bottom: 8px;
+    overflow-wrap: anywhere;
+}
+
+.direitos {
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--azul-borda);
+    margin-top: 20px;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* ==========================
+   BREAKPOINT 1
+   CELULARES - ATÉ 480px
+========================== */
+
+@media (max-width: 480px) {
+
+    .container {
+        width: min(100% - 28px, 1200px);
+    }
+
+    .header-grid,
+    .secao-grid,
+    .footer-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    .marca,
+    nav,
+    #inicio .texto,
+    .texto,
+    .imagem,
+    .contato,
+    .mensagem-final,
+    .direitos {
+        grid-column: 1 / -1;
+    }
+
+    header {
+        text-align: center;
+    }
+
+    /* Menu hambúrguer */
+
+    .menu-toggle {
+        display: inline-block;
+        margin-top: 15px;
+    }
+
+    nav {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        gap: 12px;
+        width: 100%;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    .marca h1 {
+        font-size: 1.7rem;
+    }
+
+    .texto h2 {
+        font-size: 1.6rem;
+    }
+
+    .secao-grid {
+        padding-block: 28px;
+    }
+}
+
+/* ==========================
+   BREAKPOINT 2
+   CELULARES E TABLETS PEQUENOS
+   481px A 768px
+========================== */
+
+@media (min-width: 481px) and (max-width: 768px) {
+
+    .header-grid,
+    .secao-grid,
+    .footer-grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    .marca,
+    nav,
+    #inicio .texto,
+    .texto,
+    .imagem,
+    .contato,
+    .mensagem-final {
+        grid-column: 1 / -1;
+    }
+
+    .menu-toggle {
+        display: inline-block;
+        margin-top: 15px;
+    }
+
+    nav {
+        display: none;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 14px;
+        width: 100%;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    .secao-grid {
+        padding-block: 32px;
+    }
+}
+
+/* ==========================
+   BREAKPOINT 3
+   TABLETS
+   769px A 1024px
+========================== */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .container {
+        width: min(100% - 56px, 1200px);
+    }
+
+    .header-grid,
+    .secao-grid,
+    .footer-grid {
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .marca {
+        grid-column: span 5;
+    }
+
+    nav {
+        grid-column: span 7;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 14px;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+
+    #inicio .texto,
+    .imagem {
+        grid-column: span 6;
+    }
+
+    .texto {
+        grid-column: span 8;
+    }
+
+    .contato {
+        grid-column: span 7;
+    }
+
+    .mensagem-final {
+        grid-column: span 5;
+    }
+}
+
+/* ==========================
+   BREAKPOINT 4
+   DESKTOP
+   1025px A 1440px
+========================== */
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+
+    .container {
+        max-width: 1200px;
+    }
+
+    .header-grid,
+    .secao-grid,
+    .footer-grid {
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        gap: 24px;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+
+    #inicio .texto,
+    .imagem {
+        grid-column: span 6;
+    }
+
+    .texto {
+        grid-column: span 7;
+    }
+}
+
+/* ==========================
+   BREAKPOINT 5
+   DESKTOPS PANORÂMICOS
+   ACIMA DE 1440px
+========================== */
+
+@media (min-width: 1441px) {
+
+    .container {
+        max-width: 1400px;
+    }
+
+    .header-grid,
+    .secao-grid,
+    .footer-grid {
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        gap: 32px;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+
+    .marca {
+        grid-column: span 5;
+    }
+
+    nav {
+        grid-column: span 7;
+        gap: 30px;
+    }
+
+    #inicio .texto {
+        grid-column: span 5;
+    }
+
+    #inicio .imagem {
+        grid-column: span 7;
+    }
+
+    .texto {
+        grid-column: span 7;
+    }
+
+    .contato {
+        grid-column: span 8;
+    }
+
+    .mensagem-final {
+        grid-column: span 4;
+    }
+
+    .secao-grid {
+        padding-block: 52px;
+    }
+}

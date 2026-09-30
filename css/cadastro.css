@@ -1,0 +1,163 @@
+:root {
+    --azul-escuro: #062449;
+    --azul-fundo: #082D57;
+    --azul-bebe: #9EDCFF;
+    --azul-destaque: #65C5F5;
+    --azul-borda: #17649A;
+    --branco: #FFFFFF;
+    --verde: #35c759;
+    --vermelho: #e74c3c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--azul-escuro);
+    color: var(--azul-bebe);
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--azul-fundo);
+    text-align: center;
+    padding: 30px 20px;
+    border-bottom: 1px solid var(--azul-borda);
+}
+
+header h1 {
+    color: var(--azul-destaque);
+    margin-bottom: 8px;
+}
+
+main {
+    width: min(100% - 40px, 700px);
+    margin: 40px auto;
+}
+
+main > h2 {
+    color: var(--azul-destaque);
+    margin-bottom: 10px;
+}
+
+form {
+    margin-top: 25px;
+}
+
+fieldset {
+    border: 1px solid var(--azul-borda);
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 20px;
+    background-color: var(--azul-fundo);
+}
+
+legend {
+    color: var(--azul-destaque);
+    font-weight: bold;
+    padding: 0 8px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--azul-borda);
+    border-radius: 6px;
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Estado de foco */
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--azul-destaque);
+    box-shadow: 0 0 8px rgba(101, 197, 245, 0.5);
+}
+
+/* Campo preenchido corretamente */
+input:valid,
+select:valid {
+    border-color: var(--verde);
+}
+
+/* Campo preenchido incorretamente */
+input:invalid:not(:placeholder-shown),
+select:invalid {
+    border-color: var(--vermelho);
+}
+
+/* Botão */
+button {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid var(--azul-destaque);
+    border-radius: 8px;
+    background-color: var(--azul-destaque);
+    color: var(--azul-escuro);
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease,
+                color 0.3s ease,
+                box-shadow 0.3s ease,
+                transform 0.1s ease;
+}
+
+/* Mouse sobre o botão */
+button:hover {
+    background-color: var(--branco);
+    color: var(--azul-escuro);
+    box-shadow: 0 0 10px rgba(101, 197, 245, 0.6);
+}
+
+/* Botão recebe foco */
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(101, 197, 245, 0.4);
+}
+
+/* Botão sendo pressionado */
+button:active {
+    transform: scale(0.98);
+    box-shadow: none;
+}
+
+/* Botão desabilitado */
+button:disabled {
+    background-color: #555;
+    border-color: #555;
+    color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+    box-shadow: none;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    main {
+        width: min(100% - 24px, 700px);
+        margin: 25px auto;
+    }
+
+    fieldset {
+        padding: 18px;
+    }
+
+    header h1 {
+        font-size: 1.7rem;
+    }
+}
